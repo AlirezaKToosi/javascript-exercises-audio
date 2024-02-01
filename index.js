@@ -33,5 +33,34 @@ function playSong(index) {
     currentSongIndex = index;
 }
 
+function playPauseSong(index) {
+    if (currentSongIndex === index) {
+        if (musicPlayer.paused) {
+            musicPlayer.play();
+        } else {
+            musicPlayer.pause();
+        }
+    } else {
+        playSong(index);
+    }
+}
+// Function to play the next song
+function nextSong() {
+    if (currentSongIndex < songs.length - 1) {
+        playSong(currentSongIndex + 1);
+    } else {
+        playSong(0);
+    }
+}
+
+// Function to play the previous song
+function previousSong() {
+    if (currentSongIndex > 0) {
+        playSong(currentSongIndex - 1);
+    } else {
+        playSong(songs.length - 1);
+    }
+}
+
 
 displayPlaylist();
