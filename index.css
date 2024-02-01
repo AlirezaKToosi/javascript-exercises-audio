@@ -5,21 +5,23 @@ body {
     padding: 0;
 }
 
-#playlist-view, #current-song-view {
+#playlist-view, #current-song-view  {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    align-content: center;
     margin: 20px;
 }
 
 #playlist-view img, #current-song-view img {
-    max-width: 150px;
-    max-height: 150px;
+    max-width: 50px;
+    max-height: 50px;
     border-radius: 8px;
 }
 
 #controls {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 20px;
