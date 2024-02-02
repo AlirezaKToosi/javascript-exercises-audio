@@ -4,7 +4,7 @@ const songs = [
     { name: 'Peyote', artist: 'Kinematic', album: 'kites', image: 'Peyote_-_Kinematic.jpg', file: 'Peyote_-_Kinematic.mp3' },
 ];
 
-
+//****************************************************************************************************
 function displayPlaylist() {
     const playlistView = document.getElementById("playlist-view");
     playlistView.innerHTML = "";
@@ -16,7 +16,7 @@ function displayPlaylist() {
         playlistView.appendChild(songItem);
     });
 }
-
+//****************************************************************************************************
 const musicPlayer = document.getElementById("music-player");
 const currentSongView = document.getElementById("current-song-view");
 let currentSongIndex = -1;
@@ -32,7 +32,7 @@ function playSong(index) {
     currentSongView.innerHTML = `<img src="assets/${songs[index].image}" alt="${songs[index].album}"><p>${songs[index].name} - ${songs[index].artist}</p>`;
     currentSongIndex = index;
 }
-
+//****************************************************************************************************
 function playPauseSong(index) {
     if (currentSongIndex === index) {
         if (musicPlayer.paused) {
@@ -44,23 +44,54 @@ function playPauseSong(index) {
         playSong(index);
     }
 }
-// Function to play the next song
+//****************************************************************************************************
+const progressBar = document.getElementById("progress-bar");
+
+function updateProgressBar() {
+    const progress = (musicPlayer.currentTime / musicPlayer.duration) * 100;
+    progressBar.value = progress;
+}
+
+// Add event listener to update the progress bar during playback
+musicPlayer.addEventListener("timeupdate", updateProgressBar);
+
+//**************************************************************************************************** */
+let isLooping = false;
+let isShuffling = false;
+
+function toggleLoop() {
+    isLooping = !isLooping;
+    musicPlayer.loop = isLooping;
+}
+
+// Function to toggle shuffle status
+function toggleShuffle() {
+    isShuffling = !isShuffling;
+}
+//**************************************************************************************************** */
+
+// Update the nextSong function to consider looping and shuffling
 function nextSong() {
-    if (currentSongIndex < songs.length - 1) {
+    if (isShuffling) {
+        const randomIndex = Math.floor(Math.random() * songs.length);
+        playSong(randomIndex);
+    } else if (currentSongIndex < songs.length - 1) {
         playSong(currentSongIndex + 1);
-    } else {
+    } else if (isLooping) {
         playSong(0);
     }
 }
-
-// Function to play the previous song
+//**************************************************************************************************** */
 function previousSong() {
-    if (currentSongIndex > 0) {
+    if (isShuffling) {
+        const randomIndex = Math.floor(Math.random() * songs.length);
+        playSong(randomIndex);
+    } else if (currentSongIndex > 0) {
         playSong(currentSongIndex - 1);
     } else {
         playSong(songs.length - 1);
     }
 }
-
+//**************************************************************************************************** */
 
 displayPlaylist();
