@@ -2,6 +2,10 @@
 const songs = [
     { name: 'Say_Goodbye', artist: 'VITNE', album: 'Jupiter', image: 'Say_Goodbye_-_VITNE.jpg', file: 'Say_Goodbye_-_VITNE.mp3' },
     { name: 'Peyote', artist: 'Kinematic', album: 'kites', image: 'Peyote_-_Kinematic.jpg', file: 'Peyote_-_Kinematic.mp3' },
+    { name: 'Old_News', artist: 'Hot_Fiction', album: 'Apply within', image: 'Old_News_-_Hot_Fiction.jpg', file: 'Old_News_-_Hot_Fiction.mp3' },
+    { name: 'Not_My_Problem', artist: 'All_My_Friends_Hate_Me', album: 'kites', image: 'Not_My_Problem_-_All_My_Friends_Hate_Me.jpg', file: 'Not_My_Problem_-_All_My_Friends_Hate_Me.mp3' },
+    { name: 'Higher_And_Higher', artist: 'Inception', album: 'kites', image: 'Higher_And_Higher_-_Scream_Inc._(3).jpg', file: 'Higher_And_Higher_-_Scream_Inc._(3).mp3' },
+    { name: 'Boys,_Girls,_Toys_&_Words', artist: 'Modern_Pitch', album: 'Eye of the storm', image: 'Boys,_Girls,_Toys_&_Words_-_Modern_Pitch.jpg', file: 'Boys,_Girls,_Toys_&_Words_-_Modern_Pitch.mp3' },
 ];
 
 //****************************************************************************************************
@@ -63,7 +67,7 @@ function toggleLoop() {
     isLooping = !isLooping;
     musicPlayer.loop = isLooping;
 }
-
+//****************************************************************************************************
 // Function to toggle shuffle status
 function toggleShuffle() {
     isShuffling = !isShuffling;
@@ -72,6 +76,7 @@ function toggleShuffle() {
 
 // Update the nextSong function to consider looping and shuffling
 function nextSong() {
+    console.log(currentSongIndex);
     if (isShuffling) {
         const randomIndex = Math.floor(Math.random() * songs.length);
         playSong(randomIndex);
