@@ -1,0 +1,32 @@
+.header {
+    align-items: center;
+    background-color: #1a1a6e;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    z-index: 1;
+  
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+  
+  .header .arrow-back,
+  .header .three-dots {
+    cursor: pointer;
+  }
+  
+  .header .header-text {
+    font-size: 20px;
+  }
+  
+  @media screen and (min-width: 750px) {
+    .header {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      height: 54px;
+      position: static;
+    }
+  }
+  

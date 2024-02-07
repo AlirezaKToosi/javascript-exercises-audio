@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: #1a1a6e;
+  margin: 0;
+  padding-top: 54px;
+  overflow: scroll;
+}
+
+p {
+  margin: 0;
+}
+
+.media-player {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 750px) {
+  body {
+    margin: auto;
+    max-width: 750px;
+    padding-top: 0;
+  }
+
+  .media-player {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}

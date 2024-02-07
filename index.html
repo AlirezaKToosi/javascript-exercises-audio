@@ -3,39 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css" />
-    <title>Music Player</title>
+    <title>Media Player</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;0,900;1,300&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/song.css" />
   </head>
   <body>
-    <div id="playlist-view">
-      <!-- Playlist content will go here -->
-    </div>
+    <header class="header">
+      <span class="arrow-back material-icons"> arrow_back_ios </span>
+      <span class="header-text">Music Player</span>
+      <span class="three-dots material-icons"> more_vert </span>
+    </header>
 
-    <div id="current-song-view">
-      <!-- Currently playing song content will go here -->
-    </div>
-    <div id="controls">
-      <div>
-        <input
-          type="range"
-          id="progress-bar"
-          value="0"
-          max="100"
-          step="0.1"
-          oninput="updateProgressBar()"
-        />
-      </div>
-      <div>
-        <button id="prev-btn" onclick="previousSong()">Previous</button>
-        <button id="play-pause-btn" onclick="playPauseSong(currentSongIndex)">
-          Play/Pause
-        </button>
-        <button id="next-btn" onclick="nextSong()">Next</button>
-        <button id="loop-btn" onclick="toggleLoop()">Loop</button>
-        <button id="shuffle-btn" onclick="toggleShuffle()">Shuffle</button>
-      </div>
-    </div>
+    <main class="media-player">
+      <section class="song" id="song">
 
+      </section>
+
+      <section class="play-list" id="playlist-view"></section>
+    </main>
     <audio id="music-player" src="" hidden></audio>
     <script src="index.js"></script>
   </body>
